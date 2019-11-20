@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  server:
+    build:
+      context: ./.build
+    image: senops.dev/senraria:latest
+    container_name: senopsdev__senraria
+    volumes:
+      - ./data/world:/world
+      - ./data/config:/config
+      - ./data/logs:/logs
+      - ./data/plugins:/plugins
+    ports:
+      - 7777:7777
