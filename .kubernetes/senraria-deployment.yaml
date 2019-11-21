@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: senraria
+  labels:
+    app: senraria
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: senraria
+  template:
+    metadata:
+      labels:
+        app: senraria
+    spec:
+      containers:
+      - image: gcr.io/silicon-comfort-259612/senraria:v1
+        name: senraria
+        ports:
+          - containerPort: 7777
+        volumeMounts:
+          - name: senraria-persistent-storage
+            mountPath: /config
+      volumes:
+      - name: senraria-persistent-storage
+        persistentVolumeClaim:
+          claimName: senraria-volume-claim
