@@ -4,6 +4,8 @@ services:
   server:
     build:
       context: ./.build
+      args:
+        TSHOCK_VERSION: 4.3.26
     image: senops.dev/senraria:latest
     container_name: senopsdev__senraria
     volumes:
@@ -13,3 +15,7 @@ services:
       - ./data/plugins:/plugins
     ports:
       - 7777:7777
+    environment:
+      AUTOCREATE: 1
+      AUTOCREATE_WORLD_SIZE: 3
+      WORLD_NAME: senraria

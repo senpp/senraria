@@ -10,7 +10,10 @@ RUN apk update \
 
 COPY start.sh /start
 
-ENV TSHOCK_VERSION=4.3.26
+ARG TSHOCK_VERSION=4.3.26
+ENV AUTOCREATE=false
+ENV AUTOCREATE_WORLD_SIZE=3
+ENV WORLD_NAME=senraria
 
 RUN mkdir /world /config /logs /plugins /tshock && \
 	cd /tshock && \
