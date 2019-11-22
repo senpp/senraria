@@ -22,6 +22,12 @@ spec:
         volumeMounts:
           - name: senraria-persistent-storage
             mountPath: /config
+          - name: senraria-persistent-storage
+            mountPath: /world
+          - name: senraria-persistent-storage
+            mountPath: /logs
+          - name: senraria-persistent-storage
+            mountPath: /plugins
       volumes:
       - name: senraria-persistent-storage
         persistentVolumeClaim:
